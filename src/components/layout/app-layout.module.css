@@ -1,0 +1,15 @@
+.outer {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.inner {
+  width: 100%;
+  max-width: 1024px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
