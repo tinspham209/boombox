@@ -24,6 +24,9 @@ export default function ConnectForm() {
 				.catch(() => {
 					message.error("Failed to connect.");
 					return setLoading(false);
+				})
+				.finally(() => {
+					return setLoading(false);
 				});
 		},
 		[peers]
@@ -35,11 +38,12 @@ export default function ConnectForm() {
 
 	useEffect(() => {
 		if (queryRoom && profile) {
+			setLoading(true);
+			form.setFieldValue("peerId", queryRoom);
+
 			setTimeout(() => {
-				onFinish({
-					peerId: queryRoom,
-				});
-			}, 500);
+				form.submit();
+			}, 1500);
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [profile]);
