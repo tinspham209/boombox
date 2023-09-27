@@ -52,7 +52,7 @@ export default function QueueCard() {
 										);
 									}}
 								>
-									<DeleteOutlined rev={undefined} />
+									<DeleteOutlined />
 								</Button>
 								<Button
 									shape={"circle"}
@@ -73,7 +73,7 @@ export default function QueueCard() {
 										);
 									}}
 								>
-									<PlayCircleOutlined rev={undefined} />
+									<PlayCircleOutlined />
 								</Button>
 							</div>
 						</List.Item>

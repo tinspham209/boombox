@@ -84,7 +84,7 @@ export default function ChatBox() {
 					}}
 				/>
 				<Button shape={"circle"} onClick={submitMessage}>
-					<SendOutlined rev={undefined} />
+					<SendOutlined />
 				</Button>
 			</div>
 		</Card>

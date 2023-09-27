@@ -56,7 +56,8 @@ export default function PlayerCard() {
 
 	useEffect(() => {
 		player.current?.internalPlayer.seekTo(currentTrackTime || 0);
-	}, [currentTrackTime, playerReady]);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [playerReady]);
 
 	return (
 		<div className={styles.card}>

@@ -51,7 +51,7 @@ export default function ProfileCard() {
 							dispatch(signOutProfile());
 						}}
 					>
-						<LogoutOutlined rev={undefined} />
+						<LogoutOutlined />
 					</Button>
 				</div>
 			</div>

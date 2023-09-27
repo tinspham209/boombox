@@ -18,7 +18,7 @@ import { store, useAppDispatch, useAppSelector } from "../../redux/store.ts";
 import PeerService from "../../services/peer.service.ts";
 
 export default function PeerHelper() {
-	const { profile } = useAppSelector((state) => state.app);
+	const { profile, peers } = useAppSelector((state) => state.app);
 	const dispatch = useAppDispatch();
 
 	useEffect(() => {
@@ -82,7 +82,7 @@ export default function PeerHelper() {
 						// eslint-disable-next-line no-case-declarations
 						const connectedPeers = store.getState().app.peers || [];
 						// eslint-disable-next-line no-case-declarations
-						const { data: peersList } = parsedData;
+						const peersList = parsedData.data;
 						peersList.forEach((peer: Profile) => {
 							if (!peer || !peer.username) return;
 							if (
@@ -121,11 +121,14 @@ export default function PeerHelper() {
 		return () => {
 			PeerService.disconnect();
 		};
-	}, [dispatch, profile]);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [dispatch, profile?.username]);
 
-	// useEffect(() => {
-	// if (peers.length !== 0){}
-	// }, [peers]);
+	useEffect(() => {
+		if (peers.length !== 0) {
+			console.log("");
+		}
+	}, [peers]);
 
 	return <></>;
 }

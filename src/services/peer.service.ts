@@ -115,7 +115,8 @@ class PeerService {
 	}
 
 	sendAll(message: any) {
-		for (const conn of this.connections) {
+		// eslint-disable-next-line prefer-const
+		for (let conn of this.connections) {
 			conn.send(message);
 		}
 	}
