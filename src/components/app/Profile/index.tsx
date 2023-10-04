@@ -29,7 +29,7 @@ export default function ProfileCard() {
 					<Typography.Text className={styles.name}>
 						{profile?.name}
 					</Typography.Text>
-					<Tooltip trigger={"click"} title={"Copied!"}>
+					<Tooltip trigger={"click"} title={"Copied username!"}>
 						<Tag
 							style={{ cursor: "pointer" }}
 							className={styles.username}
@@ -41,6 +41,27 @@ export default function ProfileCard() {
 						>
 							{profile?.username}
 						</Tag>
+					</Tooltip>
+					<Tooltip
+						trigger={"click"}
+						title={
+							"Copied room url to clipboard successfully. You can share to your fen!"
+						}
+					>
+						<Button
+							style={{ marginTop: "8px", fontSize: "12px" }}
+							size="small"
+							type="dashed"
+							onClick={() => {
+								navigator.clipboard
+									.writeText(
+										`${window.location.origin}?room=${profile?.username}` as string
+									)
+									.then(() => null);
+							}}
+						>
+							Share your room
+						</Button>
 					</Tooltip>
 				</div>
 				<div>
@@ -65,6 +86,7 @@ export default function ProfileCard() {
 					</Button>
 				}
 			/>
+
 			<Modal
 				open={peersModal}
 				title={"Connected Peers"}
